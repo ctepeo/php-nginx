@@ -52,8 +52,7 @@ RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && \
 # php composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
 
-# Expose only 443 port, this image must be placed behind a gateway which redirects all non-https requests to https ones
-EXPOSE 443
+EXPOSE 80
 
 # entrypoint
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
